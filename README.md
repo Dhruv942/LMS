@@ -9,7 +9,31 @@ A simple Library System in Python that allows adding, borrowing, and returning b
 - **Return Book**: Return a borrowed book to the library.
 - **Search Books**: Search for available books by title.
 - **Get Available Books**: Retrieve a list of all available books in the library.
+  
+## Requirements
 
+### Add Books:
+
+- Users should be able to add new books to the library.
+- Each book should have a unique identifier (e.g., ISBN), title, author, and publication year.
+
+### Borrow Books:
+
+- Users should be able to borrow a book from the library.
+- The system should ensure that the book is available before allowing it to be borrowed.
+- If the book is not available, the system should raise an appropriate error.
+
+### Return Books:
+
+- Users should be able to return a borrowed book.
+- The system should update the availability of the book accordingly.
+
+### View Available Books:
+
+- Users should be able to view a list of all available books in the library.
+
+## Solution
+The project is developed using Test-Driven Development (TDD) principles and follows clean coding practices.
 ## Installation
 
 ### Prerequisites
@@ -39,4 +63,4 @@ cd Library-management-system--tdd-kata
    python -m unittest discover -v > test_report.txt
 ```
 
-![Test Report]("C:\Users\dhruv\Saved Games\OneDrive\Desktop\LMR JS\test report.jpg")
+![Test Report](https://github.com/Dhruv942/Library-management-system--tdd-kata/blob/main/test%20report.jpg)
