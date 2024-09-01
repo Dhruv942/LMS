@@ -71,5 +71,16 @@ class TestLibrary(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.library.return_book(book.isbn)
 
+    def test_get_available_books_all_borrowed(self):
+        book1 = Book(isbn='1234567890', title='Test-Driven Development', author='xyz', year=2002)
+        book2 = Book(isbn='123456789', title='Python', author='abc', year=2002)
+        self.library.add_book(book1)
+        self.library.add_book(book2)
+        self.library.borrow_book(book1.isbn)
+        self.library.borrow_book(book2.isbn)
+        available_books = self.library.get_available_books()
+        self.assertEqual(available_books, [])
+
+
 if __name__ == '__main__':
     unittest.main()

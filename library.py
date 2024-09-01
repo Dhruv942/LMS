@@ -34,6 +34,6 @@ class Library:
                 book.is_borrowed = False
                 return
         raise ValueError("Book not found in the library.")
-
-    def available_books(self):
-        return [book for book in self.books.values() if book.available]
+    def get_available_books(self):
+        return [book for book in self.books if not book.is_borrowed]
+    
