@@ -2,6 +2,9 @@ import unittest
 from library import Library, Book
 
 class TestLibrary(unittest.TestCase):
+
+    def setUp(self):
+        self.library = Library()
     def test_add_single_book(self):
         library = Library()
         book = Book(isbn='1234567890', title='Test-Driven Development', author='xyz', year=2002)
@@ -40,6 +43,12 @@ class TestLibrary(unittest.TestCase):
             
         self.assertEqual(len(library.books), 2)
         self.assertEqual(library.books[0]['isbn'], '1234567890')
+
+    def test_borrow_book(self):
+        book = Book(isbn="1234567890", title="The Guide", author="RK Narayan", year=1958)
+        self.library.add_book(book)
+        self.library.borrow_book(book.isbn)
+        self.assertTrue(book.is_borrowed)
     
 
 if __name__ == '__main__':

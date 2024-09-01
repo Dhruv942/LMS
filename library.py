@@ -4,6 +4,7 @@ class Book:
         self.title = title
         self.author = author
         self.year = year
+        self.is_borrowed = False
 
 class Library:
     def __init__(self):
@@ -13,4 +14,5 @@ class Library:
         if book in self.books:
            raise ValueError("A book with this ISBN already in the library.")
         self.books.append(book)
+
 
