@@ -41,7 +41,7 @@ class Library:
     def search_books(self, title=None, author=None):
         results = []
         for book in self.books:
-            if (title and title in book.title):
+            if (title and title in book.title): 
                  if not book.is_borrowed:  
                     results.append(book)
         return results
