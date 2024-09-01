@@ -87,9 +87,27 @@ class TestLibrary(unittest.TestCase):
         results = self.library.search_books(title='Test-Driven')
         self.assertEqual(len(results), 1)
         self.assertEqual(results[0].title, 'Test-Driven')
-    
+    def test_multiple_borrow_and_return(self):
+        
+        book1 = Book(isbn='1234567890', title='Book One', author='Author A', year=2021)
+        book2 = Book(isbn='0987654321', title='Book Two', author='Author B', year=2022)
+        book3 = Book(isbn='1122334455', title='Book Three', author='Author C', year=2023)
+        self.library.add_book(book1)
+        self.library.add_book(book2)
+        self.library.add_book(book3)
+        self.library.borrow_book(book1.isbn)
+        self.library.borrow_book(book2.isbn)
+        
+        self.assertTrue(book1.is_borrowed)
+        self.assertTrue(book2.is_borrowed)
+        self.assertFalse(book3.is_borrowed)  
 
-
+        self.library.return_book(book1.isbn)
+        self.assertFalse(book1.is_borrowed)
+        
+        self.assertTrue(book2.is_borrowed)
+        with self.assertRaises(ValueError):
+            self.library.return_book(book3.isbn)
 
 if __name__ == '__main__':
     unittest.main()
