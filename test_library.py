@@ -20,36 +20,23 @@ class TestLibrary(unittest.TestCase):
         self.assertEqual(library.books[0].isbn, '1234567890')
         self.assertEqual(library.books[1].isbn, '123456789')
 
-    def test_duplicaterror(self):
+    def test_add_duplicatebook(self):
         library = Library()
-        book1 = {
-            'isbn': '1234567890',
-            'title': 'Test',
-            'author': 'xyz',
-            'year': 2002,
-        }
-        book2 = {
-            'isbn': '1234567890',
-            'title': 'python',
-            'author': 'xyz',
-            'year': 2002,
-        }
-        library.add_book(book1)
+        book = Book(isbn='1234567890', title='Test-Driven Development', author='xyz', year=2002)
+    
+        library.add_book(book)  
         try:
-            library.add_book(book2) 
-        except ValueError as e:  
-            print("Caught an error: {e}")
-        
-            
-        self.assertEqual(len(library.books), 2)
-        self.assertEqual(library.books[0]['isbn'], '1234567890')
+            library.add_book(book)  
+            self.fail("Expected ValueError not raised")
+        except ValueError as e:
+           self.assertEqual(str(e), "Book already in the library.")
+
 
     def test_borrow_book(self):
         book = Book(isbn="1234567890", title="c++", author="bde", year=2010)
         self.library.add_book(book)
         self.library.borrow_book(book.isbn)
         self.assertTrue(book.is_borrowed)
-    
-
+ 
 if __name__ == '__main__':
     unittest.main()

@@ -12,7 +12,7 @@ class Library:
 
     def add_book(self, book):
         if book in self.books:
-           raise ValueError("A book with this ISBN already in the library.")
+           raise ValueError("Book already in the library.")
         self.books.append(book)
     
     def borrow_book(self, isbn):
