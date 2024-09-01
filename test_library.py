@@ -54,6 +54,9 @@ class TestLibrary(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.library.borrow_book(book.isbn)       
 
-    
+    def test_borrow_nonexistent_book(self):
+        with self.assertRaises(ValueError):
+            self.library.borrow_book("xyz")
+            
 if __name__ == '__main__':
     unittest.main()
