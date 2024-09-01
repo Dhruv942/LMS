@@ -31,7 +31,7 @@ cd Library-management-system--tdd-kata
 
 ### Test Result
 
-![Test Result](file:///C:/Users/dhruv/Saved%20Games/OneDrive/Desktop/LMR%20JS/test%20result.jpg)
+![Test Result](https://github.com/Dhruv942/Library-management-system--tdd-kata/blob/main/test%20result.jpg)
 
 ### Test Report
 
