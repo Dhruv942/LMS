@@ -38,4 +38,10 @@ class Library:
     def get_available_books(self):
         return [book for book in self.books if not book.is_borrowed]
     
-   
+    def search_books(self, title=None, author=None):
+        results = []
+        for book in self.books:
+            if (title and title in book.title):
+                 if not book.is_borrowed:  
+                    results.append(book)
+        return results
