@@ -11,6 +11,8 @@ class Library:
         self.books = []
 
     def add_book(self, book):
+        if not book.author:
+            raise ValueError("Book author cannot be empty")
         if book in self.books:
            raise ValueError("Book already in the library.")
         self.books.append(book)
