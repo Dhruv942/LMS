@@ -45,7 +45,7 @@ class TestLibrary(unittest.TestCase):
         self.assertEqual(library.books[0]['isbn'], '1234567890')
 
     def test_borrow_book(self):
-        book = Book(isbn="1234567890", title="The Guide", author="RK Narayan", year=1958)
+        book = Book(isbn="1234567890", title="c++", author="bde", year=2010)
         self.library.add_book(book)
         self.library.borrow_book(book.isbn)
         self.assertTrue(book.is_borrowed)
