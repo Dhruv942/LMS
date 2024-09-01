@@ -87,10 +87,11 @@ class TestLibrary(unittest.TestCase):
         results = self.library.search_books(title='Test-Driven')
         self.assertEqual(len(results), 1)
         self.assertEqual(results[0].title, 'Test-Driven')
+
     def test_borrow_and_return_multiple_books(self):
-        book1 = Book(isbn="1234567890", title="The Great Gatsby", author="F. Scott Fitzgerald", year=1925)
-        book2 = Book(isbn="0987654321", title="To Kill a Mockingbird", author="Harper Lee", year=1960)
-        book3 = Book(isbn="1122334455", title="1984", author="George Orwell", year=1949)
+        book1 = Book(isbn="1234567890", title="Test-Driven", author="dhruv", year=1925)
+        book2 = Book(isbn="0987654321", title="M.S Dhoni", author="maitri", year=1960)
+        book3 = Book(isbn="1122334455", title="harray poter", author="dhruv", year=1949)
         
         self.library.add_book(book1)
         self.library.add_book(book2)
