@@ -31,7 +31,7 @@ cd Library-management-system--tdd-kata
 
 ### Test Result
 
-![Test Result]("C:\Users\dhruv\Saved Games\OneDrive\Desktop\LMR JS\test result.jpg")
+![Test Result](file:///C:/Users/dhruv/Saved%20Games/OneDrive/Desktop/LMR%20JS/test%20result.jpg)
 
 ### Test Report
 
