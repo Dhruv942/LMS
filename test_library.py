@@ -40,12 +40,20 @@ class TestLibrary(unittest.TestCase):
 
     def test_add_book_with_empty_fields(self):
         library = Library()
-        book= Book(isbn='1234567891', title='Book Title', author='', year=2024)
+        book= Book(isbn='1234567891', title='Title', author='', year=2024)
         try:
             library.add_book(book)
             self.fail("Expected ValueError not raised for empty author")
         except ValueError as e:
            self.assertEqual(str(e), "Book author cannot be empty")
- 
+
+    def test_borrow_unavailable_book(self):
+        book = Book(isbn="1234567890", title="c++", author="bde", year=2010)
+        self.library.add_book(book)
+        self.library.borrow_book(book.isbn)
+        with self.assertRaises(ValueError):
+            self.library.borrow_book(book.isbn)       
+
+    
 if __name__ == '__main__':
     unittest.main()
