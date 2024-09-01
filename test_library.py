@@ -32,11 +32,20 @@ class TestLibrary(unittest.TestCase):
            self.assertEqual(str(e), "Book already in the library.")
 
 
-    def test_borrow_book(self):
+    def test_borrowbook(self):
         book = Book(isbn="1234567890", title="c++", author="bde", year=2010)
         self.library.add_book(book)
         self.library.borrow_book(book.isbn)
         self.assertTrue(book.is_borrowed)
+
+    def test_add_book_with_empty_fields(self):
+        library = Library()
+        book= Book(isbn='1234567891', title='Book Title', author='', year=2024)
+        try:
+            library.add_book(book)
+            self.fail("Expected ValueError not raised for empty author")
+        except ValueError as e:
+           self.assertEqual(str(e), "Book author cannot be empty")
  
 if __name__ == '__main__':
     unittest.main()
