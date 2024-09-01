@@ -7,6 +7,7 @@ class TestLibrary(unittest.TestCase):
         book = Book(isbn='1234567890', title='Test-Driven Development', author='xyz', year=2002)
         library.add_book(book)
         self.assertEqual(library.books[0].isbn, '1234567890')
+
     def test_add_multiplebook(self):
         library = Library()
         book1 = Book(isbn='1234567890', title='Test-Driven Development', author='xyz', year=2002)
@@ -15,6 +16,30 @@ class TestLibrary(unittest.TestCase):
         library.add_book(book2)
         self.assertEqual(library.books[0].isbn, '1234567890')
         self.assertEqual(library.books[1].isbn, '123456789')
+
+    def test_duplicaterror(self):
+        library = Library()
+        book1 = {
+            'isbn': '1234567890',
+            'title': 'Test',
+            'author': 'xyz',
+            'year': 2002,
+        }
+        book2 = {
+            'isbn': '1234567890',
+            'title': 'python',
+            'author': 'xyz',
+            'year': 2002,
+        }
+        library.add_book(book1)
+        try:
+            library.add_book(book2) 
+        except ValueError as e:  
+            print("Caught an error: {e}")
+        
+            
+        self.assertEqual(len(library.books), 2)
+        self.assertEqual(library.books[0]['isbn'], '1234567890')
     
 
 if __name__ == '__main__':

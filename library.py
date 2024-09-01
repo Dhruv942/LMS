@@ -10,4 +10,7 @@ class Library:
         self.books = []
 
     def add_book(self, book):
-        self.books.append(book)  
+        if book in self.books:
+           raise ValueError("A book with this ISBN already in the library.")
+        self.books.append(book)
+
