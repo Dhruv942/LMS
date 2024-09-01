@@ -82,11 +82,11 @@ class TestLibrary(unittest.TestCase):
         self.assertEqual(available_books, [])
     
     def test_search_for_available_books_only(self):
-        book1 = Book(isbn='1234567890', title='Test-Driven Development', author='xyz', year=2002)
+        book1 = Book(isbn='1234567890', title='Test-Driven', author='xyz', year=2002)
         self.library.add_book(book1) 
-        results = self.library.search_books(title='Test-Driven Development')
+        results = self.library.search_books(title='Test-Driven')
         self.assertEqual(len(results), 1)
-        self.assertEqual(results[0].title, 'Test-Driven Development')
+        self.assertEqual(results[0].title, 'Test-Driven')
     
 
 
