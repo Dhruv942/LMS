@@ -57,13 +57,13 @@ class TestLibrary(unittest.TestCase):
     def test_borrow_nonexistent_book(self):
         with self.assertRaises(ValueError):
             self.library.borrow_book("xyz")
-
+            
     def test_return_book(self):
         book = Book(isbn="1234567890", title="The Guide", author="RK Narayan", year=1958)
         self.library.add_book(book)
         self.library.borrow_book(book.isbn)
         self.library.return_book(book.isbn)
-        self.assertFalse(self.library.books[book.isbn].is_borrowed)
+        self.assertFalse(book.is_borrowed)
 
 
 if __name__ == '__main__':
